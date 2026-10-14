@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facet Maker</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #20242a;
+  color: #e6e9ed;
+  font-family: Arial, sans-serif;
+}
+.topbar {
+  height: 58px;
+  background: #191c21;
+  border-bottom: 1px solid #3a414a;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+}
+.logo {
+  color: #58c9b8;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.version {
+  color: #858e99;
+  font-size: 11px;
+}
+.layout {
+  display: flex;
+  height: calc(100vh - 58px);
+}
+.sidebar {
+  width: 210px;
+  background: #24282e;
+  border-right: 1px solid #3a414a;
+  padding: 18px 10px;
+}
+.label {
+  color: #818b97;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  padding: 12px 10px;
+}
+button {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #c3cad2;
+  padding: 13px 12px;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.active {
+  background: #343b42;
+  border-color: #46515b;
+  color: #58c9b8;
+}
+.main {
+  flex: 1;
+  padding: 28px;
+  overflow: auto;
+}
+h1 {
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+.subtitle {
+  font-size: 13px;
+  color: #9da6b1;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.primary {
+  width: auto;
+  background: #39a998;
+  color: #102421;
+  font-weight: bold;
+  padding: 12px 17px;
+}
+.welcome {
+  background: #292f36;
+  border: 1px solid #414851;
+  border-radius: 7px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.welcome h2 {
+  font-size: 20px;
+}
+.welcome p {
+  max-width: 460px;
+  color: #aab3bd;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.preview {
+  width: 210px;
+  height: 125px;
+  flex-shrink: 0;
+  border: 1px solid #46535d;
+  background-color: #22282e;
+  background-image:
+    linear-gradient(#343d45 1px, transparent 1px),
+    linear-gradient(90deg,#343d45 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: grid;
+  place-items: center;
+}
+.cube {
+  width: 55px;
+  height: 55px;
+  border: 2px solid #58c9b8;
+  transform: rotate(30deg);
+}
+.section {
+  margin-top: 27px;
+  font-size: 15px;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 15px;
+}
+.project {
+  border: 1px solid #414851;
+  border-radius: 6px;
+  background: #292e35;
+  overflow: hidden;
+}
+.project-art {
+  height: 100px;
+  background-color: #242a30;
+  background-image:
+    linear-gradient(#343d45 1px, transparent 1px),
+    linear-gradient(90deg,#343d45 1px, transparent 1px);
+  background-size: 18px 18px;
+  border-bottom: 1px solid #414851;
+}
+.project-info {
+  padding: 13px;
+}
+.project-name {
+  font-size: 13px;
+  font-weight: bold;
+}
+.project-desc {
+  font-size: 11px;
+  color: #8e99a5;
+  margin-top: 7px;
+}
+@media(max-width:650px) {
+  .sidebar { width: 62px; padding: 12px 5px; }
+  .label { display: none; }
+  .navtext { display: none; }
+  button { text-align: center; padding: 13px 2px; }
+  .main { padding: 18px 12px; }
+  .preview { display: none; }
+  .projects { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .welcome { padding: 15px; }
+  h1 { font-size: 21px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">◇ FACET MAKER</div>
+  <div class="version">2D GAME ENGINE · 0.1</div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="label">РАБОЧЕЕ МЕСТО</div>
+    <button class="active">⌂　<span class="navtext">Главная</span></button>
+    <button>▦　<span class="navtext">Мои проекты</span></button>
+    <button>＋　<span class="navtext">Создать проект</span></button>
+
+    <div class="label">ПРИЛОЖЕНИЕ</div>
+    <button>⚙　<span class="navtext">Настройки</span></button>
+    <button>ⓘ　<span class="navtext">О движке</span></button>
+  </aside>
+
+  <main class="main">
+    <div class="header">
+      <div>
+        <h1>Рабочее место</h1>
+        <div class="subtitle">Создавай собственные 2D-игры.</div>
+      </div>
+      <button class="primary">＋ Создать проект</button>
+    </div>
+
+    <section class="welcome">
+      <div>
+        <h2>Добро пожаловать в Facet Maker</h2>
+        <p>
+          Твоя среда разработки 2D-игр.
+          Создавай проекты, собирай игровые сцены
+          и воплощай свои идеи в жизнь.
+        </p>
+        <button class="primary">Начать работу</button>
+      </div>
+      <div class="preview">
+        <div class="cube"></div>
+      </div>
+    </section>
+
+    <div class="section">Недавние проекты</div>
+
+    <section class="projects">
+      <article class="project">
+        <div class="project-art"></div>
+        <div class="project-info">
+          <div class="project-name">Мой первый проект</div>
+          <div class="project-desc">2D · Пустой проект</div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-art"></div>
+        <div class="project-info">
+          <div class="project-name">Новый проект</div>
+          <div class="project-desc">2D · Платформер</div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-art"></div>
+        <div class="project-info">
+          <div class="project-name">Без названия</div>
+          <div class="project-desc">2D · Пустой проект</div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
